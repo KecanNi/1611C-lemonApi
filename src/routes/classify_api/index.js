@@ -2,7 +2,7 @@
  * @Author: KecanNi 
  * @Date: 2019-02-26 11:02:39 
  * @Last Modified by: KecanNi
- * @Last Modified time: 2019-02-26 15:29:55
+ * @Last Modified time: 2019-02-26 16:43:41
  * @Function [分类操作模块]
  */
 var curd = require('mongodb-curd');
@@ -41,7 +41,8 @@ function addCurtom(req, res, next) {
     console.log(params)
     curd.find(batabaseName, collcationName, {
         'cName': params.cName,
-        "uid": { $in: ['all', params.uid] }
+        "uid": { $in: ['all', params.uid] },
+        "type": params.type
     }, function(result) {
         if (!result) {
             res.send({
