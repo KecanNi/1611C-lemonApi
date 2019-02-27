@@ -3,6 +3,6 @@ var router = express.Router();
 
 var userApi = require('./user'); //用户
 /* GET users listing. */
-router.get('/api/user', userApi.addUser);
+router.get('/api/getUser', userApi.getUser);
 
 module.exports = router;

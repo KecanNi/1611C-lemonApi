@@ -2,7 +2,7 @@
  * @Author: KecanNi 
  * @Date: 2019-02-26 11:02:39 
  * @Last Modified by: KecanNi
- * @Last Modified time: 2019-02-26 16:43:41
+ * @Last Modified time: 2019-02-27 14:08:29
  * @Function [分类操作模块]
  */
 var curd = require('mongodb-curd');
@@ -30,7 +30,7 @@ function getCurtom(req, res, next) {
     })
 }
 /**
- * 添加定义分类
+ * 添加自定义分类
  */
 function addCurtom(req, res, next) {
     var params = req.body;
@@ -38,7 +38,6 @@ function addCurtom(req, res, next) {
         res.send({ code: 3, data: "缺少参数" });
         return;
     }
-    console.log(params)
     curd.find(batabaseName, collcationName, {
         'cName': params.cName,
         "uid": { $in: ['all', params.uid] },
